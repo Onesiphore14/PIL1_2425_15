@@ -1,0 +1,17 @@
+# Fichiers système à ignorer
+desktop.ini
+
+# Node.js (si tu fais du frontend)
+node_modules/
+dist/
+
+# Python (si backend Python)
+_pycache_/
+*.pyc
+
+# Base de données temporaire
+*.sqlite
+*.db
+
+# Logs
+*.log
