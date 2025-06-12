@@ -1,0 +1,22 @@
+.co {
+    text-align: center;
+}
+
+.mot {
+    background-color: bisque;
+    text-align: center;
+}
+
+.ddj {
+    text-align: center;
+    border: 1px solid;
+    border-radius: 5px 5px 5px 5px;
+    background-color: aqua;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+.ddj:hover {
+    transform: scale(1.1);
+}
