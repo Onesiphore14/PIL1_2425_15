@@ -1,1 +1,26 @@
+.h1 {
+    text-align: center;
+    color: white;
+}
 
+body {
+    background-color: rgb(224, 109, 15);
+}
+
+.tete:hover {
+    opacity: 0.7;
+}
+
+.tete {
+    background-color: cadetblue;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+button {
+    margin-bottom: 20px;
+}
+
+ul {
+    margin-bottom: 20px;
+}
