@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+
+</head>
+
+<body>
+    <h1>INSCRIVEZ-VOUS</h1>
+    <form id="registerForm">
+        <ul> Nom <br><input type="text" placeholder="Nom" id="nom" required></ul>
+        <ul> Prenom(s) <br> <input type="text" placeholder="Prenom"> </ul>
+        <ul>Numero de telephone <br> <input type="text" placeholder="Numero" id="numero" required></ul>
+        <ul>Mot de passe <br> <input type="password" name="Password" id="" placeholder="Password" id="password"
+                required></ul>
+        <ul>Confirmer votre mot de passe <br> <input type="password" name="Password" id="" placeholder="confirmer"
+                id="password" required></ul>
+        <ul>Email <br> <input type="email" name="Email" id="" placeholder="email" id="email" required></ul>
+        <h5>MON ROLE</h5>
+        <ul> <input type="checkbox" name="" id="OptionA" onchange="gererOptions()">Conducteur</ul>
+        <ul> <input type="checkbox" name="" id="OptionB" onchange="gererOptions()">Passager</ul>
+        <button type="submit">INSCRIPTION</button>
+    </form>
+    <script src="premiere.js"></script>
+</body>
+
+</html>
