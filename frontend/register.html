@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+</head>
+<body>
+    <h1>INSCRIVEZ-VOUS</h1>
+
+    <form action="http://localhost:5000/register" method="POST">
+        <ul> Nom <br><input type="text" name="nom" placeholder="Nom"></ul>
+        <ul> Prénom(s) <br><input type="text" name="prenom" placeholder="Prenom"></ul>
+        <ul> Numéro de téléphone <br><input type="text" name="telephone" placeholder="Numéro"></ul>
+        <ul> Email <br><input type="email" name="email" placeholder="email"></ul>
+        <ul> Mot de passe <br><input type="password" name="mot_de_passe" placeholder="Password"></ul>
+
+        <h5>MON RÔLE</h5>
+        <ul><input type="radio" name="role" value="conducteur"> Conducteur</ul>
+        <ul><input type="radio" name="role" value="passager"> Passager</ul>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+</body>
+</html>
