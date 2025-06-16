@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de Trajet</title>
+</head>
+
+<body>
+    <h1>Rechercher un trajet</h1>
+
+    <form action="http://localhost:5000/search" method="POST">
+        <ul><strong>Départ</strong> <br>
+            <input type="text" name="depart" placeholder="Lieu de départ">
+        </ul>
+
+        <ul><strong>Destination</strong> <br>
+            <input type="text" name="destination" placeholder="Lieu d'arrivée">
+        </ul>
+
+        <ul><strong>Jour</strong> <br>
+            <input type="date" name="jour">
+        </ul>
+
+        <ul>
+            <button type="submit">Rechercher</button>
+        </ul>
+    </form>
+</body>
+
+</html>
