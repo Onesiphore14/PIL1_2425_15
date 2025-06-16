@@ -1,1 +1,31 @@
 
+.liens {
+    text-decoration: none;
+    color: black;
+    background-color: violet;
+}
+
+body {
+    background-color: #1f5d9e;
+}
+
+header {
+    background-color: rgb(136, 243, 243);
+    border-radius: 5px;
+    box-shadow: 5px;
+    padding-bottom: 50px;
+}
+
+.IFRI_comotorage {
+    text-align: center;
+}
+
+.phrase {
+    text-align: center;
+}
+
+.links:hover {
+    background-color: burlywood;
+    padding-bottom: 50px;
+    opacity: 0.5;
+}
