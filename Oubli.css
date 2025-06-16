@@ -1,1 +1,17 @@
+.id {
+    text-align: center;
+}
 
+body {
+    background-color: rgb(224, 109, 15);
+}
+
+.haut {
+    background-color: cadetblue;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.haut:hover {
+    opacity: 0.7A;
+}
