@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagerie - IFRI Comotorage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="messagerie.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Liste des conversations -->
+            <div class="col-md-4 col-lg-3 conversations-panel">
+                <div class="conversations-header">
+                    <h5><i class="fas fa-comments"></i> Conversations</h5>
+                    <button class="btn btn-primary btn-sm" id="newConversationBtn" title="Conversations">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="conversations-list" id="conversationsList">
+                    <!-- Les conversations seront chargées ici -->
+                </div>
+            </div>
+            
+            <!-- Zone de chat -->
+            <div class="col-md-8 col-lg-9 chat-panel">
+                <div class="chat-header" id="chatHeader">
+                    <div class="user-info">
+                        <img src="" alt="" class="user-avatar" id="chatUserAvatar">
+                        <div>
+                            <h6 class="mb-0" id="chatUserName"></h6>
+                            <small class="text-muted" id="typingIndicator"></small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="no-conversation">
+                        <i class="fas fa-comments fa-3x text-muted"></i>
+                        <p class="text-muted mt-3">Sélectionnez une conversation pour commencer</p>
+                    </div>
+                </div>
+                
+                <div class="chat-input" id="chatInput">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Tapez votre message..." id="messageInput">
+                        <button class="btn btn-primary" title="input" type="button" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal nouvelle conversation -->
+    <div class="modal fade" id="newConversationModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nouvelle conversation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" title="Nouvelle conversation"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="userSearch" class="form-label">Rechercher un utilisateur</label>
+                        <input type="text" class="form-control" id="userSearch" placeholder="Nom ou email...">
+                    </div>
+                    <div id="userSearchResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script src="js/socket-client.js"></script>
+    <script src="js/messaging.js"></script>
+</body>
+</html>
