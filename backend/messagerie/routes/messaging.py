@@ -3,7 +3,8 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from models.conversation import Conversation
 from models.message import Message
 from app import db, socketio
-from flask_socketio import emit
+# from flask_socketio import emit  # Removed unused import
+from datetime import datetime
 
 messaging_bp = Blueprint('messaging', __name__)
 

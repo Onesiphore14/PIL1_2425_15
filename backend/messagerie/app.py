@@ -20,7 +20,7 @@ from routes.messaging import messaging_bp
 app.register_blueprint(messaging_bp, url_prefix='/api/messaging')
 
 # Import des événements Socket.IO
-from utils.socket_events import *
+# from utils.socket_events import *
 
 if __name__ == '__main__':
     socketio.run(app, debug=True, host='0.0.0.0', port=5000)
