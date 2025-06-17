@@ -4,16 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connection</title>
+    <title>Connexion</title>
+    <link rel="stylesheet" href="connexion.css">
+    <div class="tete">
+        <h2 class="h1">
+            CONNECTEZ VOUS A VOTRE COMPTE
+        </h2>
+    </div>
 </head>
 
 <body>
-    <h1>CONNECTEZ VOUS A VOTRE COMPTE</h1>
+
     <form id="loginForm">
-        <ul>Identifiant <input type="email" placeholder="Votre email" id="email" required></ul>
-        <ul>Mot de passe <input type="password" placeholder="Votre mot de passe" id="password" required></ul>
-        <button type="submit">Se connecter</button><br>
-        <a href="Oubli.html">Mot de passe oublié</a>
+        <div class="h1">
+            <ul>Identifiant <input type="email" placeholder="Votre email" id="email" required></ul>
+            <ul>Mot de passe <input type="password" placeholder="Votre mot de passe" id="password" required></ul>
+            <button type="submit">Se connecter</button><br>
+            <a href="Oubli.html">Mot de passe oublié</a>
+        </div>
         <script>
             document.getElementById('loginform').addEventListener('submit', function (event) {
                 event.preventDefault();
