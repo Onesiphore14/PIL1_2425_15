@@ -1,11 +1,11 @@
 # Fichiers système à ignorer
 desktop.ini
 
-# Node.js (si tu fais du frontend)
+# Node.js (pour le frontend frontend)
 node_modules/
 dist/
 
-# Python (si backend Python)
+# Python (pour le backend Python)
 _pycache_/
 *.pyc
 
@@ -15,3 +15,9 @@ _pycache_/
 
 # Logs
 *.log
+
+#les logiciel de codage
+.vscode
+#vusual studio code
+.venv
+#pycharm

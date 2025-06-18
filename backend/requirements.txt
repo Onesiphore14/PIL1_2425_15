@@ -1,0 +1,6 @@
+Flask
+flask-core
+flask_sqlalchemy
+flask_socketio
+flask_jwt_extended
+werkzeug

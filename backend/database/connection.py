@@ -27,6 +27,18 @@ def init_db():
             photo TEXT
         )
     ''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS rides (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            conducteur_id INTEGER,
+            depart TEXT NOT NULL,
+            destination TEXT NOT NULL,
+            jour TEXT NOT NULL,
+            horaires TEXT,
+            places_disponibles INTEGER,
+            FOREIGN KEY (conducteur_id) REFERENCES users(id)
+        )
+    ''')
 
     conn.commit()
     conn.close()

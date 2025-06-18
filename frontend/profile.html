@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Profil</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      padding: 30px;
+      color: #1f2937;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2563eb;
+    }
+
+    .photo-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .photo-container img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #2563eb;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+    }
+
+    .profil-info p {
+      margin: 8px 0;
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Mon Profil</h1>
+
+  <div class="container">
+    <div class="photo-container">
+      <img id="photo" src="" alt="Photo de profil">
+    </div>
+
+    <div class="profil-info" id="profilInfo">
+      <p><strong>Nom :</strong> <span id="nom"></span></p>
+      <p><strong>Prénom :</strong> <span id="prenom"></span></p>
+      <p><strong>Email :</strong> <span id="email"></span></p>
+      <p><strong>Téléphone :</strong> <span id="telephone"></span></p>
+      <p><strong>Rôle :</strong> <span id="role"></span></p>
+    </div>
+
+    <form id="updateForm" enctype="multipart/form-data">
+      <label>Point de départ :
+        <input type="text" name="point_depart">
+      </label>
+
+      <label>Horaires :
+        <input type="text" name="horaires">
+      </label>
+
+      <label>Détails sur votre véhicule :
+        <input type="text" name="vehicule_info">
+      </label>
+
+      <label>Photo de profil :
+        <input type="file" name="photo" accept="image/*">
+      </label>
+
+      <button type="submit">Mettre à jour le profil</button>
+      <button><a href =Premierepage.html>Aller à l'accueil</a></button>
+      <button><a href =search.html>Recherche de trajet</a></button>
+    </form>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const userId = new URLSearchParams(window.location.search).get("user");
+
+    async function loadProfile() {
+      const res = await fetch(`http://localhost:5000/profile/${userId}`);
+      if (res.ok) {
+        const user = await res.json();
+        document.getElementById("nom").textContent = user.nom;
+        document.getElementById("prenom").textContent = user.prenom;
+        document.getElementById("email").textContent = user.email;
+        document.getElementById("telephone").textContent = user.telephone;
+        document.getElementById("role").textContent = user.role;
+        document.getElementById("photo").src = user.photo ? `http://localhost:5000/uploads/${user.photo}` : "https://via.placeholder.com/120";
+      } else {
+        document.getElementById("profilInfo").innerHTML = "<p style='color:red;'>Erreur de chargement du profil.</p>";
+      }
+    }
+
+    document.getElementById("updateForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(document.getElementById("updateForm"));
+      const res = await fetch(`http://localhost:5000/profile/update/${userId}`, {
+        method: "POST",
+        body: formData
+      });
+      const message = document.getElementById("message");
+      if (res.ok) {
+        message.innerHTML = "<p style='color:green;'>Profil mis à jour avec succès ✅</p>";
+        loadProfile();
+      } else {
+        message.innerHTML = "<p style='color:red;'>Erreur lors de la mise à jour ❌</p>";
+      }
+    });
+
+    loadProfile();
+  </script>
+</body>
+</html>

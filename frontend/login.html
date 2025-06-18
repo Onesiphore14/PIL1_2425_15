@@ -2,22 +2,106 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>CONNECTEZ-VOUS À VOTRE COMPTE</h1>
+    <h1>Connexion</h1>
 
-    <form action="http://localhost:5000/login" method="POST">
-        <ul>Email <br>
-        <input type="email" name="email" placeholder="Votre email"></ul>
-        <ul>Mot de passe <br>
-        <input type="password" name="mot_de_passe" placeholder="Votre mot de passe"></ul>
+    <form action="http://localhost:5000/login" method="POST" id="loginForm" >
+        <label>Email :
+            <input type="email" name="email" required placeholder="Votre email">
+        </label>
+        <label>Mot de passe :
+            <input type="password" name="mot_de_passe" required placeholder="Votre mot de passe">
+        </label>
 
         <button type="submit">Se connecter</button>
-    </form>
+        <a href="reset_password.html">Mot de passe oublié ?</a>
 
-    <br>
-    <a href="register.html">Créer un compte</a>
+        <a href="register.html">Créer un compte</a>
+    </form>
+    <script>
+  const form = document.getElementById("loginForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData);
+
+    const res = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: data
+    });
+
+    if (res.ok) {
+      const result = await res.json(); // on attend un JSON avec l'id
+      const userId = result.id; // tu retournes ça depuis Flask
+      // Rediriger vers la page de profil
+      window.location.href = `profile.html?user=${userId}`;
+    } else {
+      alert("Échec de la connexion");
+    }
+  });
+</script>
+
 </body>
 </html>

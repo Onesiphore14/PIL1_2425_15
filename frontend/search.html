@@ -1,32 +1,143 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recherche de Trajet</title>
+    <title>Recherche de Trajets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            padding: 20px;
+            color: #1f2937;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #resultats {
+            margin-top: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trajet {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #2563eb;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Rechercher un trajet</h1>
+    <h1>Recherche de Trajets</h1>
 
-    <form action="http://localhost:5000/search" method="POST">
-        <ul><strong>Départ</strong> <br>
-            <input type="text" name="depart" placeholder="Lieu de départ">
-        </ul>
+    <form id="searchForm">
+        <label>Départ :
+            <input type="text" name="depart" required>
+        </label>
 
-        <ul><strong>Destination</strong> <br>
-            <input type="text" name="destination" placeholder="Lieu d'arrivée">
-        </ul>
+        <label>Destination :
+            <input type="text" name="destination" required>
+        </label>
 
-        <ul><strong>Jour</strong> <br>
-            <input type="date" name="jour">
-        </ul>
+        <label>Date :
+            <input type="date" name="jour" required>
+        </label>
 
-        <ul>
-            <button type="submit">Rechercher</button>
-        </ul>
+        <button type="submit">Rechercher</button>
     </form>
-</body>
 
+    <div id="resultats"></div>
+
+    <script>
+        const form = document.getElementById("searchForm");
+        const resultats = document.getElementById("resultats");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = new URLSearchParams(formData);
+
+            try {
+                const response = await fetch("http://localhost:5000/search", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: data
+                });
+
+                resultats.innerHTML = "";
+
+                if (response.ok) {
+                    const trajets = await response.json();
+
+                    if (trajets.length === 0) {
+                        resultats.innerHTML = "<p>Aucun trajet trouvé.</p>";
+                        return;
+                    }
+
+                    trajets.forEach(trajet => {
+                        resultats.innerHTML += `
+                            <div class="trajet">
+                                <p><strong>Départ :</strong> ${trajet.depart}</p>
+                                <p><strong>Destination :</strong> ${trajet.destination}</p>
+                                <p><strong>Date :</strong> ${trajet.jour}</p>
+                                <p><strong>Conducteur :</strong> ${trajet.conducteur.nom} ${trajet.conducteur.prenom}</p>
+                                <p><strong>Contact :</strong> ${trajet.conducteur.telephone}</p>
+                                <p><strong>Horaires :</strong> ${trajet.horaires || "Non précisé"}</p>
+                                <p><strong>Places :</strong> ${trajet.places_disponibles || "?"}</p>
+                            </div>
+                        `;
+                    });
+                } else {
+                    resultats.innerHTML = "<p style='color:red;'>Erreur lors de la recherche.</p>";
+                }
+            } catch (err) {
+                resultats.innerHTML = "<p style='color:red;'>Serveur injoignable.</p>";
+            }
+        });
+    </script>
+</body>
 </html>

@@ -2,24 +2,101 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        form {
+            max-width: 450px;
+            margin: auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 5px;
+        }
+
+        .role {
+            margin-top: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>INSCRIVEZ-VOUS</h1>
+    <h1>Inscription</h1>
 
     <form action="http://localhost:5000/register" method="POST">
-        <ul> Nom <br><input type="text" name="nom" placeholder="Nom"></ul>
-        <ul> Prénom(s) <br><input type="text" name="prenom" placeholder="Prenom"></ul>
-        <ul> Numéro de téléphone <br><input type="text" name="telephone" placeholder="Numéro"></ul>
-        <ul> Email <br><input type="email" name="email" placeholder="email"></ul>
-        <ul> Mot de passe <br><input type="password" name="mot_de_passe" placeholder="Password"></ul>
+        <label>Nom :
+            <input type="text" name="nom" required placeholder="Votre nom">
+        </label>
 
-        <h5>MON RÔLE</h5>
-        <ul><input type="radio" name="role" value="conducteur"> Conducteur</ul>
-        <ul><input type="radio" name="role" value="passager"> Passager</ul>
+        <label>Prénom :
+            <input type="text" name="prenom" required placeholder="Votre prénom">
+        </label>
 
-        <button type="submit">S'inscrire</button>
+        <label>Téléphone :
+            <input type="tel" name="telephone" required placeholder="Ex : 98765432">
+        </label>
+
+        <label>Email :
+            <input type="email" name="email" required placeholder="Votre email">
+        </label>
+
+        <label>Mot de passe :
+            <input type="password" name="mot_de_passe" required placeholder="Choisissez un mot de passe">
+        </label>
+
+        <div class="role">
+            <label><input type="radio" name="role" value="conducteur" required> Conducteur</label>
+            <label><input type="radio" name="role" value="passager" required> Passager</label>
+        </div>
+
+        <button type="submit">Créer un compte</button>
+
+        <a href="login.html">Déjà inscrit ? Se connecter</a>
     </form>
 </body>
 </html>
