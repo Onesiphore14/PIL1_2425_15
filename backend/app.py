@@ -1,17 +1,17 @@
 
-from flask import Flask, request, jsonify ,send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, render_template
 from flask_cors import CORS
 from database.connection import get_connection, init_db
 from werkzeug.utils import secure_filename
 import os
 from backend.routes.messaging import messaging_routes
-
+from backend.routes.rides import rides_routes
 
 app = Flask(__name__)
 CORS(app)
 
 app.register_blueprint(messaging_routes)
-
+app.register_blueprint(rides_routes)
 @app.route('/')
 def start():
     return "Backend avec Canisius et Abdoul"
@@ -44,8 +44,7 @@ def register():
     conn.commit()
     conn.close()
 
-    return ""
-
+    return render_template("../frontend/templates/profil.html")
 #celle pour la photo de profile
 @app.route('/uploads/<filename>')
 def serve_upload(filename):

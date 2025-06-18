@@ -1,44 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>profil</title>
-    <link rel="stylesheet" href="profil.css">
-    <link rel="stylesheet" href="ifri.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil</title>
+  <link rel="stylesheet" href="profil.css">
+  <link rel="stylesheet" href="ifri.css">
 </head>
 <body>
-    <div class="container">
-        <div class="profile-container">
-            <h2><i class="fas fa-user-circle"></i>Mon profil</h2>
-            <form action="#" method="post">
-                <input type="text" name="nom" placeholder="Nom" value="Doe" required>
-                <input type="text" name="prenom" placeholder="Prenom" value="John" required>
-                <input type="text" name="email" placeholder="Adresse email" value="john@example.com" required>
-                <input type="tel" name="telephone" placeholder="Téléphone" value="0100000000" required>
+  <div class="container">
+    <div class="profile-container">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2><i class="fas fa-user-circle"></i> Mon profil</h2>
+        <p id="welcomeText" style="font-weight: bold; color: #2563eb;"></p>
+      </div>
 
-                <label for="role" style="display: block; text-align: left; margin-bottom: 8px; color: #0f4c75;"> Rôle:</label>
-                <select name="role" id="role" required>
-                    <option value="conducteur">Conducteur</option>
-                    <option value="passager">Passager</option>
-                </select>
-                <div class="vehicule-info">
-                    <h3 style="margin-top: 0; color: #3282b8;"><i class="fas fa-car"></i> Informations véhicule</h3>
-                    <input type="text" name="vehicule_marque" placeholder="Marque du véhicule" value="Toyota">
-                    <input type="text" name="vehicule_modele" placeholder="Modèle du véhicule" value="Corolla">
-                    <input type="number" name="places" placeholder="Places disponibles" value="3">
-                </div>
 
-                <h3 style="margin-bottom: 15px; color: #3282b8;"><i class="fas fa-route"></i> Trajet habituel</h3>
-                <input type="text" name="depart" placeholder="Point de départ habituel" value="Cotonou, Fidjrossè">
-                <input type="time" name="heure_depart" placeholder="Heure de départ" value="07:30">
-                <input type="time" name="heure_arrivee" placeholder="Heure d'arrivée" value="08:15">
 
-                <button type="submit"><i class="fas fa-save"></i> Mettre à jour le profil</button>
-               
-            </form>
+      <!-- PHOTO DE PROFIL -->
+      <div class="photo-container" style="text-align: center; margin-bottom: 20px;">
+        <img id="photo" src="https://via.placeholder.com/120" alt="Photo de profil" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #2563eb; object-fit: cover;">
+      </div>
 
+      <form id="updateForm" method="post">
+        <input type="text" name="nom" placeholder="Nom" required>
+        <input type="text" name="prenom" placeholder="Prénom" required>
+        <input type="text" name="email" placeholder="Adresse email" required>
+        <input type="tel" name="telephone" placeholder="Téléphone" required>
+
+        <label for="role" style="display: block; text-align: left; margin-bottom: 8px; color: #0f4c75;"> Rôle :</label>
+        <select name="role" id="role" required>
+          <option value="conducteur">Conducteur</option>
+          <option value="passager">Passager</option>
+        </select>
+
+        <div class="vehicule-info">
+          <h3 style="margin-top: 0; color: #3282b8;"><i class="fas fa-car"></i> Informations véhicule</h3>
+          <input type="text" name="vehicule_marque" placeholder="Marque du véhicule">
+          <input type="text" name="vehicule_modele" placeholder="Modèle du véhicule">
+          <input type="number" name="places" placeholder="Places disponibles" min="1">
         </div>
+
+        <h3 style="margin-bottom: 15px; color: #3282b8;"><i class="fas fa-route"></i> Trajet habituel</h3>
+        <input type="text" name="depart" placeholder="Point de départ habituel">
+        <input type="time" name="heure_depart" placeholder="Heure de départ">
+        <input type="time" name="heure_arrivee" placeholder="Heure d'arrivée">
+
+        <button type="submit"><i class="fas fa-save"></i> Mettre à jour le profil</button>
+
+        <div id="message" style="text-align: center; margin-top: 10px;"></div>
+         <!-- BOUTONS NAVIGATION -->
+      <div style="text-align:right; margin-bottom: 15px;">
+        <button onclick="window.location.href='../publication.html'" class="btn btn-outline-primary">Voir les trajets</button>
+        <button onclick="window.location.href='../messagerie.html'" class="btn btn-outline-secondary">Messagerie</button>
+      </div>
+      </form>
     </div>
+  </div>
+
+  <script>
+    const userId = localStorage.getItem("user_id");
+    const prenom = localStorage.getItem("prenom");
+    const nom = localStorage.getItem("nom");
+    if (prenom && nom) {
+      document.getElementById("welcomeText").textContent = Connecté : ${prenom} ${nom};
+    }
+
+    async function loadProfile() {
+      const res = await fetch(http://localhost:5000/profile/${userId});
+      if (res.ok) {
+        const user = await res.json();
+
+        document.querySelector("input[name=nom]").value = user.nom;
+        document.querySelector("input[name=prenom]").value = user.prenom;
+        document.querySelector("input[name=email]").value = user.email;
+        document.querySelector("input[name=telephone]").value = user.telephone;
+        document.querySelector("select[name=role]").value = user.role;
+
+        document.querySelector("input[name=vehicule_marque]").value = user.vehicule_marque || "";
+        document.querySelector("input[name=vehicule_modele]").value = user.vehicule_modele || "";
+        document.querySelector("input[name=places]").value = user.places || "";
+
+        document.querySelector("input[name=depart]").value = user.depart || "";
+        document.querySelector("input[name=heure_depart]").value = user.heure_depart || "";
+        document.querySelector("input[name=heure_arrivee]").value = user.heure_arrivee || "";
+
+        document.getElementById("photo").src = user.photo
+          ? http://localhost:5000/uploads/${user.photo}
+          : "https://via.placeholder.com/120";
+      } else {
+        alert("Erreur de chargement du profil.");
+      }
+    }
+
+    document.getElementById("updateForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(document.getElementById("updateForm"));
+      const res = await fetch(http://localhost:5000/profile/update/${userId}, {
+        method: "POST",
+        body: formData
+      });
+      const message = document.getElementById("message");
+      if (res.ok) {
+        message.innerHTML = "<p style='color:green;'>Profil mis à jour avec succès ✅</p>";
+        loadProfile();
+      } else {
+        message.innerHTML = "<p style='color:red;'>Erreur lors de la mise à jour ❌</p>";
+      }
+    });
+
+    loadProfile();
+  </script>
 </body>
 </html>
+

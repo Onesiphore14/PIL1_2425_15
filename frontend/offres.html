@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang= "fr" »>
+<html lang= "fr">
 <head>
     <meta charset= "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="postType" id="request" value="request">
-                        <label class="form-check-label" for= "request ">Demande de covoiturage (je suis passager)</label>
+                        <label class="form-check-label" for= "request">Demande de covoiturage (je suis passager)</label>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -52,6 +52,36 @@
             </form>
         </div>
     </div>
+    <script>
+  const form = document.getElementById("rideForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const userId = localStorage.getItem("user_id"); // utilisateur connecté
+    if (!userId) {
+      alert("Connectez-vous avant de publier");
+      return;
+    }
+
+    const data = new FormData(form);
+    data.append("user_id", userId);
+    data.append("depart", document.getElementById("departure").value);
+    data.append("destination", document.getElementById("arrival").value);
+    data.append("heure", document.getElementById("departureTime").value);
+    data.append("places", document.getElementById("seats").value);
+    data.append("commentaires", document.getElementById("comments").value);
+
+    const res = await fetch("http://localhost:5000/rides/add", {
+      method: "POST",
+      body: data
+    });
+
+    const text = await res.text();
+    alert(text);
+    if (res.ok) form.reset();
+  });
+</script>
 </body>
 </html>
 

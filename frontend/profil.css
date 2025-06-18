@@ -1,3 +1,119 @@
+body{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
+    min-height: 100vh;
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.header{
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    padding: 40px 0;
+}
+.header h1{
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba( 0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+.header p{
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+.nav-grid{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.nav-card{
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) ;
+    border: 2px solid transparent;
+    width: 100%;
+    max-width: 300px;
+}
+.center-card{
+    align-self: center;
+    height: fit-content;
+}
+.nav-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(15, 76, 117, 0.3);
+    background: rgba(255, 255, 255, 1);
+    border: 2px solid #3282b8;
+}
+.nav-card i{
+    font-size: 3rem;
+    color:#0f4c75;
+    margin-bottom: 20px;
+    display: block;
+    transition: all 0.3s ease;
+}
+.nav-card:hover i{
+    color: #3282b8;
+    transform: scale (1.1);
+}
+.nav-card h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+.nav-card p{
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+.nav-card a{
+    display: inline-block;
+    background: linear-gradient(45deg, #0f4c75, #3282b8);
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.nav-card a:hover{
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #3282b8, #bbe1fa);
+    color: #0f4c75;
+    box-shadow: 0 5px 15px rgba(50, 130, 184, 0.4);
+}
+@media(max-widht:900px){
+    .nav-grid{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header h1{
+        font-size: 2rem;
+    }
+    .nav-card, .nav-card-group{
+        max-width: 350px;
+    }
+}
+@media(max-widht:768px){
+    .header {
+        padding: 20px 0;
+    }
+}
 .profile-container {
     background: rgba(255, 255, 255, 0.95);
     color: #333;
@@ -87,3 +203,4 @@
         font-size: 1.8rem;
     }
 }
+

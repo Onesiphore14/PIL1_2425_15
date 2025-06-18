@@ -9,11 +9,11 @@
     Transition : all 0.3s ease ;
 }
 
-.publication-container :hover {
+/*.publication-container :hover {
     Box-shadow : 0 20px 40px rgba(15, 76, 117, 0.3) ;
     Background : rgba(255, 255, 255, 1) ;
     Border : 2px solid #3282b8 ;
-}
+}*/
 
 .publication-container h2 {
     Color : #0f4c75 ;

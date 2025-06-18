@@ -5,33 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a039821-5636-43d4-a9b3-2a70d8a3c8f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/conversation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/routes/messaging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/utils/socket_events.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/SocketClient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/messagerie.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/socket.io.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/messagerie.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/messagerie.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/rides.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/templates/ifri.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/templates/profil.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/publication.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/profil.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/templates/profil.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/_init_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database_config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/ifri_comotorage.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/schema_database.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/Premierepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Premierepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/bootstrap.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/ifri.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ifri.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/offres.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/offres.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/offres.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/offres.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/profil.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/templates/profil.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/profil.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/search.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

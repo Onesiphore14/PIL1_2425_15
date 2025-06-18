@@ -96,7 +96,7 @@
       const result = await res.json(); // on attend un JSON avec l'id
       const userId = result.id; // tu retournes ça depuis Flask
       // Rediriger vers la page de profil
-      window.location.href = `profile.html?user=${userId}`;
+      window.location.href = `../backend/templates/profil.html?user=${userId}`;
     } else {
       alert("Échec de la connexion");
     }
