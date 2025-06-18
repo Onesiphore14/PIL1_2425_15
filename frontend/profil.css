@@ -1,0 +1,89 @@
+.profile-container {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.profile-container:hover {
+    box-shadow: 0 20px 40px rgba(15, 76, 117, 0.3);
+    background: rgba(255, 255, 255, 1);
+    border: 2px solid #3282b8;
+}
+
+.profile-container h2 {
+    margin-bottom: 30px;
+    color: #0f4c75;
+    font-size: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container input,
+.profile-container select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.profile-container input:focus,
+.profile-container select:focus {
+    border-color: #3282b8;
+    box-shadow: 0 0 0 3px rgba(50, 130, 184, 0.2);
+    outline: none;
+}
+
+.vehicule-info {
+    margin: 25px 0;
+    padding: 20px;
+    background-color: rgba(187, 225, 250, 0.3);
+    border-radius: 15px;
+    border: 1px dashed #3282b8;
+}
+
+.vehicule-info input {
+    margin-bottom: 15px;
+}
+
+.profile-container button {
+    background: linear-gradient(45deg, #0f4c75, #3282b8);
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(45deg, #3282b8, #bbe1fa);
+    color: #0f4c75;
+    box-shadow: 0 10px 20px rgba(50, 130, 184, 0.4);
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 30px 20px;
+        margin: 30px auto;
+    }
+    
+    .profile-container h2 {
+        font-size: 1.8rem;
+    }
+}

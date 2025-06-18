@@ -1,37 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang= "fr" »>
 <head>
-    <meta charset="UTF-8">
+    <meta charset= "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appli gr/</title>
-    <link rel="stylesheet" href="premiere_css.css">
-
-    <h1 class="co">IFRI_comotorage</h1>
-    <div>
-
-        <a href="index.html">Accueil</a>
-        <a href="login.html"> Connection</a>
-        <a href="register.html">Inscription</a>
-        <a href="search.html">Trouver un trajet</a>
-        <a href="">Proposer un trajet</a>
-
-    </div>
+    <title>Publier une offre</title>
+    <link rel= "stylesheet" href= "offres.css">
+    <link rel="stylesheet" href="ifri.css">
 </head>
-
 <body>
-    <div class="mot">
-        <h2>PARTAGEZ VOS TRAJETS ICI</h2>
-        <h3>
-            <p>IFRI_comotorage facilite la mise en commun des trajets de tous les etudiants de notre institut</p>
-        </h3>
-    </div>
-    <div class="ddj">
-        <ul><strong>Depart</strong> <input type="text" placeholder="Lieu de depart"></ul>
-        <ul><strong>Destination</strong> <input type="text" placeholder="Lieu d'arrivee"></ul>
-        <ul><strong>Jour</strong> <input type="date" placeholder="Date"></ul>
-        <ul><button type="reset">Rechercher</button></ul>
+    <div class="container">
+        <div class="publication-container">
+            <h2><i class="fas fa-car-side"></i> Publier une offre/demande</h2>
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Type de publication</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="postType" id="offer" value="offer" checked>
+                        <label class="form-check-label" for= "offer">Offre de covoiturage (je suis conducteur)</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="postType" id="request" value="request">
+                        <label class="form-check-label" for= "request ">Demande de covoiturage (je suis passager)</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="departure" class="form-label">Point de départ</label>
+                    <input type="text" class="form-control" id="departure" placeholder="Adresse ou lieu de départ">
+                </div>
+                <div class= »mb-3 »>
+                    <label for="arrival" class="form-label">Point d'arrivée</label>
+                    <input type="text" class="form-control" id="arrival" placeholder="Adresse ou lieu d'arrivée" value="IFRI, Université d'Abomey-Calavi">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="departureTime" class="form-label">Heure de départ</label>
+                        <input type="time" class="form-control" id="departureTime">
+                    </div>
+                   
+                </div>
+                <div id="seatsField" class="mb-3">
+                    <label for="seats" class="form-label">Nombre de places disponibles</label>
+                    <input type="number" class="form-control" id="seats" min="1" max="10" value="1">
+                </div>
+                <div class="mb-3">
+                    <label for="comments" class="form-label">Commentaires (facultatif)</label>
+                    <textarea class= »form-control » id="comments" rows="3" placeholder="Précisions sur le trajet, préférences…"></textarea>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Publier</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
-
 </html>
+
+
