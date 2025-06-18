@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carte Temps Réel - Ifri Comotorage</title>
+  <meta charset="utf-8" />
+  <style>
+    #map { height: 90vh; width: 100%; }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <h2>Carte de suivi en temps réel</h2>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([6.5, 2.6], 13); // Ex. pour Cotonou
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const markerConducteur = L.marker([6.5, 2.6]).addTo(map).bindPopup("Conducteur");
+    const markerPassager = L.marker([6.51, 2.61]).addTo(map).bindPopup("Passager");
+
+    // Simule une mise à jour de position toutes les 5 sec
+    setInterval(() => {
+      fetch("/positions") // route qu'on va créer juste après
+        .then(res => res.json())
+        .then(data => {
+          markerConducteur.setLatLng([data.conducteur.lat, data.conducteur.lng]);
+          markerPassager.setLatLng([data.passager.lat, data.passager.lng]);
+        });
+    }, 5000);
+  </script>
+</body>
+</html>
