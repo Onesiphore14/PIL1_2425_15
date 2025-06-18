@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport de projet - IFRI_comotorage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .group-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .manual-step {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>IFRI_COMMOTORAGE</h1>
+    
+    <div class="group-info">
+        <h2>Informations du groupe</h2>
+        <p><strong>Nom du groupe :</strong> PIL1_2425_15</p>
+        <p><strong>Membres de l'équipe :</strong></p>
+        <ul>
+            <li>AHOUANTCHEDE Edison:IM</li>
+            <li>BOSSOU Trinité: SI</li>
+            <li>ISSIFOU SALAMI Abdoul-Matine: SEIOT</li>
+            <li>MEVIEKPON Canisius: IA</li>
+            <li> DOSSOUOnésiphore: SI</li>
+            <li>AMOUSSOU Renaud </li>
+        </ul>
+    </div>
+
+    <h2>Mode de fonctionnement interne du groupe <Br>Le groupe a été divisé en trois équipe: une pour le backend, une pour le frontend et une autre pour la base de données. La plupart des réunions se sont fait en ligne et une dernière réunion en présentiel a eu lieu le mercredi 18 juin 2025 oü tout les membres du groupe etaient présent sauf AMOUSSOU Renaud qui ne s'est jamais manifesté.</Br></h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Rôle</th>
+                <th>Contribution</th>
+                <th>Démarche suivie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>MEVIEKPON Canisius</td>
+                <td>Chef de projet, Développeur backend</td>
+                <td>Coordination, gestion des tâches, backend</td>
+                <td>Analyse des besoins, développement des API, tests unitaires vérification des livrables</td>
+            </tr>
+            <tr>
+                <td>AMOUSSOU Renaud</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>ISSIFOU SALAMI Abdoul-Matine</td>
+                <td>Messagerie instantanée, matching, gestion de la carte</td>
+                <td>Conception des websockets, algorithme de matching, intégration avec le frontend</td>
+            </tr>
+            <tr>
+                <td>BOSSOU Trinté</td>
+                <td>Développeur frontend</td>
+                <td>Interfaces utilisateur, design</td>
+                <td>pages d'acceui, offres, profil,rapport, </td>
+            </tr>
+            <tr>
+                <td>DOSSOUOnésiphore</td>
+                <td>Développeur frontend</td>
+                <td>Connexion, inscription, mot de passe oublié</td>
+                <td>Intégration de Leaflet.js, développement des interfaces de trajet</td>
+            </tr>
+            <tr>
+                <td>AHOUANTCHEDE Edison:IM</td>
+                <td>Administrateur base de données</td>
+                <td>Conception et gestion de la base de données</td>
+                <td>Modélisation des données, optimisation des requêtes SQL, migration</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Description de la conception</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Composant</th>
+                <th>Technologies utilisées</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Base de données</td>
+                <td>SQLite</td>
+                <td>
+                    La base de données gère les utilisateurs, leurs données personnelles, les trajets de covoiturage et la messagerie. 
+                    Elle contient des tables pour enregistrer les informations personnelles, les offres et demandes de trajets, 
+                    ainsi que les messages échangés. Les relations entre les tables permettent de faire des correspondances 
+                    entre conducteurs et passagers.
+                </td>
+            </tr>
+            <tr>
+                <td>Backend</td>
+                <td>Python (Flask)</td>
+                <td>
+                    Le backend gère l'inscription et la connexion des utilisateurs, la mise à jour des profils, 
+                    la réinitialisation des mots de passe, et fait le lien entre le frontend et la base de données. 
+                    Il implémente également la logique de matching et la messagerie instantanée.
+                </td>
+            </tr>
+            <tr>
+                <td>Frontend</td>
+                <td>HTML, CSS, JavaScript</td>
+                <td>
+                    Le frontend comprend plusieurs pages : ifri.html (page d'accueil), premièrepage.html (page de connexion/inscription), 
+                    et les interfaces pour la gestion des profils, des trajets et de la messagerie. Leaflet.js est utilisé pour 
+                    l'affichage des cartes et la géolocalisation.
+                </td>
+            </tr>
+            <tr>
+                <td>Messagerie</td>
+                <td>WebSockets, JavaScript</td>
+                <td>
+                    La messagerie permet aux utilisateurs d'échanger des messages en temps réel grâce à un système de conversation. Chaque échange est stocké dans une table messages liées àune cpnversation unique. 
+                    Le backend FLASK  gère l'envoi et la reception des conversations
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Instructions de déploiement</h2>
+    <ol>
+        <li>Cloner le dépôt Git du projet</li>
+        <li>Installer les dépendances nécessaires (Flask, SQLite, etc.)</li>
+        <li>Lancer l'exécution de app.py pour démarrer le serveur backend</li>
+        <li>Ouvrir ifri.html dans un navigateur web pour accéder à l'interface</li>
+        <li>Créer un compte via le formulaire d'inscription</li>
+        <li>Se connecter avec les identifiants créés</li>
+        <li>Accéder à son profil pour compléter les informations</li>
+        <li>En tant que conducteur, publier des offres de trajet</li>
+        <li>En tant que passager, publier des demandes de trajet</li>
+    </ol>
+
+    <h2>Manuel d'utilisation</h2>
+    
+    <h3>1. Première utilisation</h3>
+    <div class="manual-step">
+        <p><strong>Étape 1 :</strong> Accédez à l'application en ouvrant ifri.html dans votre navigateur.</p>
+        <p><strong>Étape 2 :</strong> Si vous n'avez pas de compte, cliquez sur "S'inscrire" et remplissez le formulaire.</p>
+        <p><strong>Étape 3 :</strong> Après inscription, connectez-vous avec votre email et mot de passe.</p>
+    </div>
+
+    <h3>2. Gestion du profil</h3>
+    <div class="manual-step">
+        <p><strong>Étape 1 :</strong> Cliquez sur "Mon profil" dans le menu principal.</p>
+        <p><strong>Étape 2 :</strong> Complétez vos informations personnelles (point de départ, horaires, etc.).</p>
+        <p><strong>Étape 3 :</strong> Si vous êtes conducteur, ajoutez les informations sur votre véhicule.</p>
+        <p><strong>Étape 4 :</strong> Sauvegardez les modifications.</p>
+    </div>
+
+    <h3>3. Publication d'offres/demandes de trajet</h3>
+    <div class="manual-step">
+        <p><strong>Pour les conducteurs :</strong></p>
+        <p>- Allez dans "Proposer un trajet"</p>
+        <p>- Renseignez le point de départ, d'arrivée, l'heure et le nombre de places</p>
+        <p>- Validez la publication</p>
+        
+        <p><strong>Pour les passagers :</strong></p>
+        <p>- Allez dans "Chercher un trajet"</p>
+        <p>- Indiquez vos besoins (départ, arrivée, horaire)</p>
+        <p>- Validez la demande</p>
+    </div>
+
+    <h3>4. Utilisation de la messagerie</h3>
+    <div class="manual-step">
+        <p><strong>Étape 1 :</strong> Dans la liste des matches, sélectionnez un utilisateur.</p>
+        <p><strong>Étape 2 :</strong> La messagerie s'ouvre automatiquement.</p>
+        <p><strong>Étape 3 :</strong> Tapez votre message et appuyez sur "Envoyer".</p>
+        <p><strong>Étape 4 :</strong> Vous recevrez une notification pour les nouveaux messages.</p>
+    </div>
+
+    <h3>5. Consultation des trajets</h3>
+    <div class="manual-step">
+        <p><strong>Étape 1 :</strong> Allez dans "Mes trajets" pour voir vos offres/demandes en cours.</p>
+        <p><strong>Étape 2 :</strong> La carte montre les trajets disponibles avec les points de départ/arrivée.</p>
+        <p><strong>Étape 3 :</strong> Cliquez sur un trajet pour voir les détails et les options disponibles.</p>
+    </div>
+    <h1>codes sources</h1>
+    <a href="app.py"> côté serveur</a>
+    <a href="sql.sql"> fichier sql</a>
+
+</body>
+</html>
