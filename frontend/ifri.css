@@ -22,6 +22,10 @@ body{
     font-size: 2.5rem;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba( 0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 .header p{
     font-size: 1.2rem;
@@ -29,9 +33,11 @@ body{
 }
 .nav-grid{
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 .nav-card{
     background: rgba(255, 255, 255, 0.95);
@@ -40,6 +46,12 @@ body{
     transition: all 0.3s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) ;
     border: 2px solid transparent;
+    width: 100%;
+    max-width: 300px;
+}
+.center-card{
+    align-self: center;
+    height: fit-content;
 }
 .nav-card:hover{
     transform: translateY(-10px);
@@ -63,6 +75,11 @@ body{
     margin-bottom: 20px;
     font-size: 1.3rem;
 }
+.nav-card p{
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
 .nav-card a{
     display: inline-block;
     background: linear-gradient(45deg, #0f4c75, #3282b8);
@@ -79,11 +96,21 @@ body{
     color: #0f4c75;
     box-shadow: 0 5px 15px rgba(50, 130, 184, 0.4);
 }
-@media(max-widht:768px){
+@media(max-widht:900px){
+    .nav-grid{
+        flex-direction: column;
+        align-items: center;
+    }
+
     .header h1{
         font-size: 2rem;
     }
-    .nav-grid{
-        grid-template-columns: 1fr;
+    .nav-card, .nav-card-group{
+        max-width: 350px;
+    }
+}
+@media(max-widht:768px){
+    .header {
+        padding: 20px 0;
     }
 }
