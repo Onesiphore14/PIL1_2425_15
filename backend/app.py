@@ -1,20 +1,20 @@
-from tempfile import template
 
 from flask import Flask, request, jsonify ,send_from_directory
 from flask_cors import CORS
 from database.connection import get_connection, init_db
 from werkzeug.utils import secure_filename
 import os
+from backend.routes.messaging import messaging_routes
+
+
 app = Flask(__name__)
 CORS(app)
 
+app.register_blueprint(messaging_routes)
+
 @app.route('/')
 def start():
-    return "salut "
-
-
-
-
+    return "Backend avec Canisius et Abdoul"
 
 #la route pour l'inscription
 @app.route('/register', methods=['POST'])
@@ -27,7 +27,7 @@ def register():
     role = request.form.get('role')
 
     if not all([nom, prenom, telephone, email, mot_de_passe, role]):
-        return "Champs manquants", 400
+        return ""
 
     conn = get_connection()
     cursor = conn.cursor()
@@ -44,7 +44,7 @@ def register():
     conn.commit()
     conn.close()
 
-    return    " Inscription réussie</h1> ", 201
+    return ""
 
 #celle pour la photo de profile
 @app.route('/uploads/<filename>')

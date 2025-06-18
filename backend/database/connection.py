@@ -39,6 +39,27 @@ def init_db():
             FOREIGN KEY (conducteur_id) REFERENCES users(id)
         )
     ''')
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS conversations (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user1_id INTEGER NOT NULL,
+            user2_id INTEGER NOT NULL,
+            UNIQUE(user1_id, user2_id)
+        )
+    ''')
+
+    # Table des messages dans une conversation
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS messages (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            conversation_id INTEGER NOT NULL,
+            sender_id INTEGER NOT NULL,
+            contenu TEXT NOT NULL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (conversation_id) REFERENCES conversations(id),
+            FOREIGN KEY (sender_id) REFERENCES users(id)
+        )
+    ''')
 
     conn.commit()
     conn.close()

@@ -5,18 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a039821-5636-43d4-a9b3-2a70d8a3c8f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/conversation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/models/message.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/routes/messaging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/utils/socket_events.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/SocketClient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/messagerie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/socket.io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/messagerie.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/messagerie.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/database/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/messagerie/frontend/messagerie.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/messagerie/frontend/messagerie.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/_init_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/ifri_comotorage.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/schema_database.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Premierepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Premierepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ifri.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ifri.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/premiere_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/premiere_css.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/search.html" afterDir="false" />
     </list>
@@ -27,6 +40,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/backend/routes/messaging.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3

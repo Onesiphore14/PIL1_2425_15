@@ -85,11 +85,25 @@
         </label>
 
         <button type="submit">Rechercher</button>
+        <button onclick="ContacterConducteur(3)">Contacter</button>
     </form>
 
     <div id="resultats"></div>
 
     <script>
+         function contacterConducteur(conducteurId) {
+    const userId = localStorage.getItem("user_id");
+    if (!userId) {
+      alert("Veuillez vous connecter");
+      window.location.href = "login.html";
+      return;
+    }
+
+    // Enregistre le destinataire dans localStorage aussi
+    localStorage.setItem("receiver_id", conducteurId);
+    window.location.href = "messagerie.html";
+          }
+
         const form = document.getElementById("searchForm");
         const resultats = document.getElementById("resultats");
 
