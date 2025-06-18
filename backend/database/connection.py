@@ -27,6 +27,18 @@ def init_db():
             photo TEXT
         )
     ''')
+# Ajoute les colonnes de géolocalisation 
+try:
+    cursor.execute("ALTER TABLE users ADD COLUMN point_depart_lat REAL")
+except sqlite3.OperationalError:
+    pass  
+# colonne existe déjà
+
+try:
+    cursor.execute("ALTER TABLE users ADD COLUMN point_depart_lng REAL")
+except sqlite3.OperationalError:
+    pass  
+# colonne existe déjà
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS rides (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
