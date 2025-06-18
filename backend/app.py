@@ -207,6 +207,43 @@ def search_rides():
         })
 
     return jsonify(trajets), 200
+@app.route('/match', methods=['POST'])
+def match():
+    user_lat = float(request.form.get('lat'))
+    user_lng = float(request.form.get('lng'))
+    role = request.form.get('role')  # "passager" ou "conducteur"
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    # Recherche des rôles opposés proches
+    role_recherche = "conducteur" if role == "passager" else "passager"
+    cursor.execute('''
+        SELECT id, nom, prenom, point_depart_lat, point_depart_lng
+        FROM users WHERE role = ?
+    ''', (role_recherche,))
+    candidats = cursor.fetchall()
+    conn.close()
+
+    def distance(lat1, lng1, lat2, lng2):
+        return ((lat1 - lat2)**2 + (lng1 - lng2)**2) ** 0.5
+
+    resultats = []
+    for c in candidats:
+        d = distance(user_lat, user_lng, c['point_depart_lat'], c['point_depart_lng'])
+        if d < 0.05:  # rayon de recherche (ex: ~5km)
+            resultats.append({
+                'id': c['id'],
+                'nom': c['nom'],
+                'prenom': c['prenom'],
+                'distance': round(d, 3)
+            })
+
+    return jsonify(resultats)
+#carte
+@app.route('/carte')
+def carte():
+    return send_from_directory('frontend', 'carte.html')
 # Initiation de la base
 if __name__ == '__main__':
     init_db()
